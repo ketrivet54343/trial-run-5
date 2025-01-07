@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CMA MCQ Practice site for Cost and Management Accounting courses.">
+  <meta name="keywords" content="CMA, Cost and Management Accounting, MCQ practice, Foundation, Intermediate, Final">
+  <title>CMA MCQ Practice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+  /* General Styles */
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Header Section */
+  header {
+    position: relative;
+    height: 80vh;
+    background: url('main2.jpg') no-repeat center center/cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+  }
+
+  /* Header Content */
+  header div {
+    z-index: 2; /* Make sure text is above the overlay */
+  }
+
+  header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.5s ease-out forwards;
+  }
+
+  header p {
+    font-size: 1.5rem;
+    color: #ddd;
+    margin-bottom: 2rem;
+    animation: fadeIn 1.5s ease-out 0.5s;
+  }
+
+  header .header-btn {
+    background: #2575fc;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+  }
+
+  header .header-btn:hover {
+    background: #6a11cb;
+    transform: translateY(-5px);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Navigation Bar */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin-right: 2rem;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #ff8a00;
+  }
+
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ff8a00;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  nav ul li a:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Section Styling */
+  section {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  /* Courses Section */
+  #course-section {
+    background: #fff;
+  }
+
+  #course-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .courses-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* Modified Course Card (Visible on Load) */
+  .course-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    text-align: left;
+    color: #555;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px; /* Ensure all course cards are of equal height */
+  }
+
+  /* Hover Effect */
+  .course-card:hover {
+    transform: translateY(-15px) scale(1.1); /* Slightly more pronounced scale */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Deep shadow effect */
+    background: #ff8a00; /* Background color change */
+    color: #fff; /* Change text color on hover */
+  }
+
+  /* Make the content visible on page load */
+  .course-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: inherit; /* Ensures the color of the heading changes with the background */
+    transform: translateY(0); /* Ensure it is visible immediately */
+    opacity: 1; /* Ensure it's visible immediately */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .course-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    opacity: 1; /* Make it visible on load */
+    transform: translateY(0); /* Ensure it is visible immediately */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .course-card a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #2575fc;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .course-card a:hover {
+    background-color: #6a11cb;
+    transform: translateY(-3px); /* Slight hover effect */
+  }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .courses-container {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+
+  
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#course-section"><i class="fas fa-book"></i> Courses</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <header>
+    <div>
+      <h1>Cost And Management Accounting</h1>
+      <p>Behind every successful business decision, there is always a CMA</p>
+      <a href="#course-section" class="header-btn">Explore Courses</a>
+    </div>
+  </header>
+
+  <!-- Courses Section -->
+  <section id="course-section">
+    <h2>Our Courses</h2>
+    <div class="courses-container">
+      <div class="course-card">
+        <h3>CMA Foundation</h3>
+        <ul>
+          <li>Past papers available</li>
+          <li>MCQ bank</li>
+        
+        </ul>
+        <a href="foundation.html">Learn More</a>
+      </div>
+      <div class="course-card">
+        <h3>CMA Intermediate</h3>
+        <ul>
+          <li>Past papers</li>
+          <li>RTPs</li>
+          <li>MTPs</li>
+          <li>Comprehensive question bank</li>
+        </ul>
+        <a href="intersec.html">Learn More</a>
+      </div>
+      <div class="course-card">
+        <h3>CMA Final</h3>
+        <ul>
+          <li>Past papers </li>
+          <li>Comprehensive question bank</li>
+        </ul>
+        <a href="final.html">Learn More</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

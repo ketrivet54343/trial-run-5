@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            color: rgb(0, 0, 0);
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        form {
+            background-color: transparent;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .options label {
+            padding: 15px;
+            background: #f3f3f3;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .options label:hover {
+            background: #dfe6e9;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .options input {
+            margin-right: 10px;
+            accent-color: #6c5ce7;
+        }
+
+        .options label.correct {
+            background: #00b894;
+            color: white;
+        }
+
+        .options label.incorrect {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #00b894;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .result span {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="timer" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; position: fixed; top: 20px; left: 87%; transform: translateX(-50%); background-color: #fff; padding: 10px 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 1000; color: #ff0000;">Timer - 30:00</div>
+
+    
+    <div class="container">
+        <h2>MCQ Quiz</h2>
+        <form id="quizForm">
+            <!-- Example of 50 questions -->
+            <div class="question">
+                <p>1. Which of the following is not a major source of law in any modern society?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> Custom</label>
+                    <label><input type="radio" name="q1" value="B"> Judicial precedent</label>
+                    <label><input type="radio" name="q1" value="C"> Legislation</label>
+                    <label><input type="radio" name="q1" value="D"> Executive order</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>2. An 'agent' is a person employed to do any act for another or to represent another in dealing with the</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A"> first person</label>
+                    <label><input type="radio" name="q2" value="B"> second person</label>
+                    <label><input type="radio" name="q2" value="C"> third person</label>
+                    <label><input type="radio" name="q2" value="D"> fourth person</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>3. In case of a sale by auction, if the seller makes use of pretended bidding to raise the price, the sale is voidable at the option of</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A"> buyer</label>
+                    <label><input type="radio" name="q3" value="B"> seller</label>
+                    <label><input type="radio" name="q3" value="C"> dealer</label>
+                    <label><input type="radio" name="q3" value="D"> consumer</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>4. Which one of the following is not a type of endorsement in case of a negotiable instrument?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="A"> Blank</label>
+                    <label><input type="radio" name="q4" value="B"> Full</label>
+                    <label><input type="radio" name="q4" value="C"> Written</label>
+                    <label><input type="radio" name="q4" value="D"> Restrictive</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>5. The implied authority of a partner is to carry on the business of the firm, in the</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="A"> casual way</label>
+                    <label><input type="radio" name="q5" value="B"> usual way</label>
+                    <label><input type="radio" name="q5" value="C"> unusual way</label>
+                    <label><input type="radio" name="q5" value="D"> special way</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>6. Chapter V of the Factories Act, 1948 provides for the welfare of workmen employed in the factory to be taken in the factory</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="A"> operative measure</label>
+                    <label><input type="radio" name="q6" value="B"> recreative measure</label>
+                    <label><input type="radio" name="q6" value="C"> safety measure</label>
+                    <label><input type="radio" name="q6" value="D"> welfare measure</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>7. Section 55 of the Code on Wages, 2019 talks about</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="A"> offences by companies</label>
+                    <label><input type="radio" name="q7" value="B"> composition of offences</label>
+                    <label><input type="radio" name="q7" value="C"> penalty for offences</label>
+                    <label><input type="radio" name="q7" value="D"> impacts of offences</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>8. __ means a company in which that other company has a significant influence, but which is not a subsidiary company of the company having such influence and includes a joint venture company.</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="A"> Associate Company</label>
+                    <label><input type="radio" name="q8" value="B"> Holding Company</label>
+                    <label><input type="radio" name="q8" value="C"> Small Company</label>
+                    <label><input type="radio" name="q8" value="D"> Foreign Company</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>9. The annual return of an OPC in absence of the company secretary shall be signed by the __ of the company.</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="A"> banker</label>
+                    <label><input type="radio" name="q9" value="B"> auditor</label>
+                    <label><input type="radio" name="q9" value="C"> legal officer</label>
+                    <label><input type="radio" name="q9" value="D"> director</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>10. A start-up company may issue sweat equity shares not exceeding paid-up capital up to 5 years from the date of its incorporation. Which percentage of its paid-up capital can it issue?</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="A"> 50%</label>
+                    <label><input type="radio" name="q10" value="B"> 25%</label>
+                    <label><input type="radio" name="q10" value="C"> 15%</label>
+                    <label><input type="radio" name="q10" value="D"> 10%</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>11. Where the equity shares of a company are listed on a recognized stock exchange, the Employees Stock Option Scheme shall be issued in accordance with the regulations made by</p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="A"> the concerned company</label>
+                    <label><input type="radio" name="q11" value="B"> the Registrar of Companies</label>
+                    <label><input type="radio" name="q11" value="C"> the Ministry of Corporate Affairs</label>
+                    <label><input type="radio" name="q11" value="D"> the SEBI</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>12. Where an auditor is dissatisfied with the information provided and finds that he cannot express a proper opinion on the statements, he will issue</p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="A"> a clean report</label>
+                    <label><input type="radio" name="q12" value="B"> an adverse opinion</label>
+                    <label><input type="radio" name="q12" value="C"> a disclaimer of opinion</label>
+                    <label><input type="radio" name="q12" value="D"> a qualified report</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>13. Every listed company shall establish a vigil mechanism for genuine concerns to report</p>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="A"> directors and employees</label>
+                    <label><input type="radio" name="q13" value="B"> auditors and employees</label>
+                    <label><input type="radio" name="q13" value="C"> customers and employees</label>
+                    <label><input type="radio" name="q13" value="D"> financer and employees</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>14. Which one of the following is not an attribute of emotional intelligence?</p>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="A"> Self management</label>
+                    <label><input type="radio" name="q14" value="B"> Social awareness</label>
+                    <label><input type="radio" name="q14" value="C"> Corporate management</label>
+                    <label><input type="radio" name="q14" value="D"> Relationship management</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>15. Holders of public office must act and take decision impartially, fairly and on merit using the best evidence and without discrimination or bias. This principle of public life is known as</p>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="A"> honesty</label>
+                    <label><input type="radio" name="q15" value="B"> selflessness</label>
+                    <label><input type="radio" name="q15" value="C"> objectivity</label>
+                    <label><input type="radio" name="q15" value="D"> integrity</label>
+                </div>
+            </div>
+            
+
+
+            <!-- Continue with the remaining questions following the same format -->
+            <!-- Example: questions 11-50 -->
+
+            <!-- Submit button -->
+            <button type="button" class="btn" onclick="calculateScore()">Submit</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+  function calculateScore() {
+    var score = 0;
+    var totalQuestions = 15;
+
+    // Correct answers for each question
+    var answers = {
+        q1: 'D', // Executive order 
+        q2: 'C', // third person
+        q3: 'A', // buyer
+        q4: 'C', // Written
+        q5: 'B', // usual way
+        q6: 'D', // welfare measure 
+        q7: 'A', // offences by companies.
+        q8: 'A', // Associate Company.
+        q9: 'D', // director
+        q10: 'A', // 50% 
+        q11: 'D', // the SEBI. 
+        q12: 'C', // a disclaimer of opinion.
+        q13: 'A', // directors and employees
+        q14: 'C', // Corporate management 
+        q15: 'C', // objectivity 
+        // Add the remaining answers here
+    };
+
+    // Validate all questions are answered
+    for (var i = 1; i <= totalQuestions; i++) {
+        var selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selectedAnswer) {
+            alert(`Please answer question ${i} before submitting.`);
+            return;
+        }
+    }
+
+    // Reset previous results
+    const labels = document.querySelectorAll('.options label');
+    labels.forEach(label => {
+        label.classList.remove('correct', 'incorrect');
+    });
+
+    // Check each question answer and highlight
+    for (var i = 1; i <= totalQuestions; i++) {
+        var question = document.querySelectorAll(`input[name="q${i}"]`);
+        var selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+        question.forEach(function(option) {
+            if (option.value === answers[`q${i}`]) {
+                option.parentElement.classList.add('correct');
+            }
+            if (selectedAnswer && selectedAnswer.value === option.value && option.value !== answers[`q${i}`]) {
+                option.parentElement.classList.add('incorrect');
+            }
+        });
+
+        // Calculate score
+        if (selectedAnswer && selectedAnswer.value === answers[`q${i}`]) {
+            score++;
+        }
+    }
+
+    // Display result
+    var resultText = `Your score is <span>${score} out of ${totalQuestions}</span>.`;
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").innerHTML = resultText;
+}
+
+let timer;
+let timeLeft = 30 * 60; // 30 minutes in seconds
+
+function startTimer() {
+    timer = setInterval(function () {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+
+        // Format the time (e.g., 05:02)
+        document.getElementById("timer").innerHTML = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+
+        // Decrease the time
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            alert("Time's up! Your quiz has been submitted automatically.");
+            calculateScore(); // Auto-submit quiz when time is up
+        } else {
+            timeLeft--;
+        }
+    }, 1000); // Update every second
+}
+
+// Start the timer when the page loads
+window.onload = function() {
+    startTimer();
+};
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus Archive</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #00c6ff, #0072ff); /* Cool blue gradient */
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.6); /* Dark transparent header */
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Course Grid */
+        .courses {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .course {
+            background: rgba(0, 0, 0, 0.7); /* Dark background for each course */
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        /* Glowing effect */
+        .course::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .course h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #00c6ff; /* Bright text color */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            position: relative;
+        }
+
+        .course p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #ccc;
+            z-index: 2;
+            position: relative;
+        }
+
+        .course a {
+            display: inline-block;
+            background-color: #00c6ff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            z-index: 2;
+        }
+
+        .course a:hover {
+            background-color: #0072ff;
+            text-decoration: none;
+        }
+
+        /* Hover effect for course cards */
+        .course:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .course:hover::before {
+            background: rgba(255, 255, 255, 0.3); /* Glow effect on hover */
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        footer p {
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Animation for courses fade-in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Syllabus Archive</h1>
+    </header>
+
+    <div class="courses">
+        <!-- Course 1: Syllabus 16 -->
+        <div class="course">
+            <h2>Syllabus 2016</h2>
+            <p>Explore the syllabus for the 2016 course. All the topics and lessons are outlined for your convenience.</p>
+            <a href="syllabus16.html">View Syllabus</a>
+        </div>
+
+        <!-- Course 2: Syllabus 22 -->
+        <div class="course">
+            <h2>Syllabus 2022</h2>
+            <p>Explore the syllabus for the 2022 course. Learn about the latest curriculum updates and new topics.</p>
+            <a href="syllabus22bank.html">View Syllabus</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Syllabus Archive. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

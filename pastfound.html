@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Papers Archive</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffffff, #00fe3b); /* New gradient */
+            color: #333; /* Dark text for better contrast */
+            text-align: center;
+        }
+
+        header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            animation: fadeInDown 1s ease;
+            color: #fff; /* Light header text */
+        }
+
+        .papers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .paper {
+            background: rgba(255, 255, 255, 0.9); /* Light card background */
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paper:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(240, 240, 240, 1); /* Slightly darker on hover */
+        }
+
+        .paper h2 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #333; /* Dark text for better readability */
+        }
+
+        .attempt-links {
+            display: none;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .paper.active .attempt-links {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .attempt-links a {
+            display: block;
+            padding: 10px 0;
+            color: #0078D7; /* Bright blue links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .attempt-links a:hover {
+            text-decoration: underline;
+            color: #0056a4; /* Darker hover effect */
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            font-size: 0.9em;
+            color: #fff; /* Light footer text */
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Past Papers Archive</h1>
+    </header>
+
+    <div class="papers">
+        <!-- Card for each year -->
+        <div class="paper" onclick="toggleOptions(this)">
+            <h2>2017 Past Papers</h2>
+            <div class="attempt-links">
+                <a href="#">June Attempt</a>
+                <a href="#">December Attempt</a>
+            </div>
+        </div>
+        <div class="paper" onclick="toggleOptions(this)">
+            <h2>2018 Past Papers</h2>
+            <div class="attempt-links">
+                <a href="#">June Attempt</a>
+                <a href="#">December Attempt</a>
+            </div>
+        </div>
+        <div class="paper" onclick="toggleOptions(this)">
+            <h2>2019 Past Papers</h2>
+            <div class="attempt-links">
+                <a href="#">June Attempt</a>
+                <a href="#">December Attempt</a>
+            </div>
+        </div>
+        <div class="paper" onclick="toggleOptions(this)">
+            <h2>2020 Past Papers</h2>
+            <div class="attempt-links">
+                <a href="#">June Attempt</a>
+                <a href="#">December Attempt</a>
+            </div>
+        </div>
+        <div class="paper" onclick="toggleOptions(this)">
+            <h2>2021 Past Papers</h2>
+            <div class="attempt-links">
+                <a href="#">June Attempt</a>
+                <a href="#">December Attempt</a>
+            </div>
+        </div>
+        <div class="paper" onclick="toggleOptions(this)">
+            <h2>2022 Past Papers</h2>
+            <div class="attempt-links">
+                <a href="#">June Attempt</a>
+                <a href="#">December Attempt</a>
+            </div>
+        </div>
+        <div class="paper" onclick="toggleOptions(this)">
+            <h2>2023 Past Papers</h2>
+            <div class="attempt-links">
+                <a href="#">June Attempt</a>
+                <a href="">December Attempt</a>
+            </div>
+        </div>
+        <div class="paper" onclick="toggleOptions(this)">
+            <h2>2024 Past Papers</h2>
+            <div class="attempt-links">
+                <a href="#">June Attempt</a>
+                <a href="#">December Attempt</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Past Papers Archive. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to toggle visibility and animation of options
+        function toggleOptions(element) {
+            const papers = document.querySelectorAll('.paper');
+            papers.forEach(paper => {
+                if (paper !== element) {
+                    paper.classList.remove('active');
+                }
+            });
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

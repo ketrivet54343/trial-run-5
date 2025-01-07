@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            color: rgb(0, 0, 0);
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        form {
+            background-color: transparent;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .options label {
+            padding: 15px;
+            background: #f3f3f3;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .options label:hover {
+            background: #dfe6e9;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .options input {
+            margin-right: 10px;
+            accent-color: #6c5ce7;
+        }
+
+        .options label.correct {
+            background: #00b894;
+            color: white;
+        }
+
+        .options label.incorrect {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #00b894;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .result span {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="timer" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; position: fixed; top: 20px; left: 87%; transform: translateX(-50%); background-color: #fff; padding: 10px 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 1000; color: #ff0000;">Timer - 30:00</div>
+
+    
+    <div class="container">
+        <h2>MCQ Quiz</h2>
+        <form id="quizForm">
+            <!-- Example of 50 questions -->
+            <div class="question">
+                <p>1."Untouchability" is abolished and its practice in any form is</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> allowed</label>
+                    <label><input type="radio" name="q1" value="B"> forbidden   </label>
+                    <label><input type="radio" name="q1" value="C"> partially allowed  </label>
+                    <label><input type="radio" name="q1" value="D"> partially forbidden</label>
+                </div>
+            </div>
+            <br>
+            <div class="question">
+                <p>2.If a mercantile agent is authorized by the owner of the goods to sell on his behalf, then 
+                    such sale shall be
+                    </p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A"> objectionable
+                    </label>
+                    <label><input type="radio" name="q2" value="B"> void
+                    </label>
+                    <label><input type="radio" name="q2" value="C"> valid
+                    </label>
+                    <label><input type="radio" name="q2" value="D"> incomplete
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>3. A party who does not suffer any loss in case of breach of contract is entitled to  ?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A"> Exemplary damages.
+                    </label>
+                    <label><input type="radio" name="q3" value="B"> Nominal damages
+                    </label>
+                    <label><input type="radio" name="q3" value="C"> Liquidated damages</label>
+                    <label><input type="radio" name="q3" value="D"> Statutory damages
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <!-- Add more questions following the same format -->
+            <div class="question">
+                <p>4.The Negotiable Instruments Act, 1881 extends to:
+                </p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="A">  The whole of India.
+                    </label>
+                    <label><input type="radio" name="q4" value="B"> Only to capital cities of the States.
+                    </label>
+                    <label><input type="radio" name="q4" value="C">  The whole of India except the Union Territories.
+                    </label>
+                    <label><input type="radio" name="q4" value="D"> The whole of India except the State of Jammu and Kashmir.
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>5.Every foreign LLP shall file with the Registrar the Statement of Account and Solvency in
+                </p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="A">  Form 6
+                    </label>
+                    <label><input type="radio" name="q5" value="B"> Form 7
+                    </label>
+                    <label><input type="radio" name="q5" value="C"> Form 7
+                    </label>
+                    <label><input type="radio" name="q5" value="D"> Form 9
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>6. If there is a dispute as to the amount of gratuity payable to the employee, the employer shall deposit the gratuity with the
+                </p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="A"> State Board
+                    </label>
+                    <label><input type="radio" name="q6" value="B"> Controlling Authority
+                    </label>
+                    <label><input type="radio" name="q6" value="C"> State or Central Board
+                    </label>
+                    <label><input type="radio" name="q6" value="D">All of the above
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>7. When a person is employed on piece work for which minimum time rate and not a minimum piece rate has been fixed under this Code, 
+                    the employer shall pay to such person wages at not less than the
+                    </p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="A"> maximum time rate
+                    </label>
+                    <label><input type="radio" name="q7" value="B"> minimum time rate
+                    </label>
+                    <label><input type="radio" name="q7" value="C"> alternate time rate
+                    </label>
+                    <label><input type="radio" name="q7" value="D"> All of the above</label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>8. No prospectus shall be valid if it is issued more than which a copy thereof is delivered to the Registrar. 
+                    days after the date on
+                </p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="A"> fifteen
+                    </label>
+                    <label><input type="radio" name="q8" value="B"> thirty
+                    </label>
+                    <label><input type="radio" name="q8" value="C"> sixty
+                    </label>
+                    <label><input type="radio" name="q8" value="D"> ninety
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>9. The private placement shall be made, not more than a financial year as per Companies Act, 2013. 
+                    persons in aggregate in
+                </p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="A"> 400
+                    </label>
+                    <label><input type="radio" name="q9" value="B"> 300
+                    </label>
+                    <label><input type="radio" name="q9" value="C"> 200
+                    </label>
+                    <label><input type="radio" name="q9" value="D">  100 </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>10. The quorum for a public company having the number of members more than 5000 is</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="A"> 10
+                    </label>
+                    <label><input type="radio" name="q10" value="B"> 20
+                    </label>
+                    <label><input type="radio" name="q10" value="C"> 30
+                    </label>
+                    <label><input type="radio" name="q10" value="D"> 40
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>In case of e-voting notice shall be sent as attachment in
+                </p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="A"> PDF
+                    </label>
+                    <label><input type="radio" name="q11" value="B"> word file
+                    </label>
+                    <label><input type="radio" name="q11" value="C"> excel</label>
+                    <label><input type="radio" name="q11" value="D"> XML
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>12.For selecting the name for the company, an application for the reservation of name shall be made in with the fee.
+                </p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="A"> Form INC 1
+                    </label>
+                    <label><input type="radio" name="q12" value="B"> Form-INC 7
+                    </label>
+                    <label><input type="radio" name="q12" value="C"> Form-MGT 1
+                    </label>
+                    <label><input type="radio" name="q12" value="D"> Form-MGT 7
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>13. Where the equity shares of the company are listed on a recognized stock exchange, the issue of such shares shall be approved by shareholders through the
+                </p>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="A"> voting by show of hands
+
+                    </label>
+                    <label><input type="radio" name="q13" value="B"> voting through electronic means</label>
+                    <label><input type="radio" name="q13" value="C"> Postal ballot
+                    </label>
+                    <label><input type="radio" name="q13" value="D"> voting by poll
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>14. Selflessness means that the holders of public office should act solely in terms of the</p>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="A"> Government interest
+                    </label>
+                    <label><input type="radio" name="q14" value="B"> Public interest
+                    </label>
+                    <label><input type="radio" name="q14" value="C"> Company interest</label>
+                    <label><input type="radio" name="q14" value="D">  All of the above
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <div class="question">
+                <p>15.Moral management requires ethical
+                </p>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="A"> customer </label>
+                    <label><input type="radio" name="q15" value="B"> market</label>
+                    <label><input type="radio" name="q15" value="C"> leadership</label>
+                    <label><input type="radio" name="q15" value="D"> producer</label>
+                </div>
+            </div>
+            <br>
+
+
+            <!-- Continue with the remaining questions following the same format -->
+            <!-- Example: questions 11-50 -->
+
+            <!-- Submit button -->
+            <button type="button" class="btn" onclick="calculateScore()">Submit</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+  function calculateScore() {
+    var score = 0;
+    var totalQuestions = 15;
+
+    // Correct answers for each question
+    var answers = {
+        q1: 'B', // forbidden
+        q2: 'C', // valid
+        q3: 'B', // Nominal damages
+        q4: 'A', // The whole of India
+        q5: 'C', // Form 8
+        q6: 'B', // Controlling Authority 
+        q7: 'B', // minimum time rate 
+        q8: 'D', // ninety
+        q9: 'C', // 200
+        q10: 'C', // 30 
+        q11: 'A', // PDF 
+        q12: 'A', // Form - INC 1
+        q13: 'C', // Postal ballot
+        q14: 'B', // Public interest 
+        q15: 'C', // leadership 
+        // Add the remaining answers here
+    };
+
+    // Validate all questions are answered
+    for (var i = 1; i <= totalQuestions; i++) {
+        var selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selectedAnswer) {
+            alert(`Please answer question ${i} before submitting.`);
+            return;
+        }
+    }
+
+    // Reset previous results
+    const labels = document.querySelectorAll('.options label');
+    labels.forEach(label => {
+        label.classList.remove('correct', 'incorrect');
+    });
+
+    // Check each question answer and highlight
+    for (var i = 1; i <= totalQuestions; i++) {
+        var question = document.querySelectorAll(`input[name="q${i}"]`);
+        var selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+        question.forEach(function(option) {
+            if (option.value === answers[`q${i}`]) {
+                option.parentElement.classList.add('correct');
+            }
+            if (selectedAnswer && selectedAnswer.value === option.value && option.value !== answers[`q${i}`]) {
+                option.parentElement.classList.add('incorrect');
+            }
+        });
+
+        // Calculate score
+        if (selectedAnswer && selectedAnswer.value === answers[`q${i}`]) {
+            score++;
+        }
+    }
+
+    // Display result
+    var resultText = `Your score is <span>${score} out of ${totalQuestions}</span>.`;
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").innerHTML = resultText;
+}
+
+let timer;
+let timeLeft = 30 * 60; // 30 minutes in seconds
+
+function startTimer() {
+    timer = setInterval(function () {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+
+        // Format the time (e.g., 05:02)
+        document.getElementById("timer").innerHTML = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+
+        // Decrease the time
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            alert("Time's up! Your quiz has been submitted automatically.");
+            calculateScore(); // Auto-submit quiz when time is up
+        } else {
+            timeLeft--;
+        }
+    }, 1000); // Update every second
+}
+
+// Start the timer when the page loads
+window.onload = function() {
+    startTimer();
+};
+
+    </script>
+</body>
+</html>
+
